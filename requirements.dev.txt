@@ -1,1 +1,2 @@
 flake8>=3.9.2,<=3.10
+drf-spectacular>=0.15.1,<0.16
