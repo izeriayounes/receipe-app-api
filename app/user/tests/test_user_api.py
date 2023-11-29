@@ -18,8 +18,9 @@ def create_user(**params):
     """Create a new user."""
     return get_user_model().objects.create_user(**params)
 
+
 class PublicUserApiTests(TestCase):
-    """Test the public features fo the user API"""
+    """Test the public features fo the user API."""
 
     def setUp(self):
         self.client = APIClient()
@@ -105,6 +106,7 @@ class PublicUserApiTests(TestCase):
 
         self.assertEqual(res.status_code, status.HTTP_401_UNAUTHORIZED)
 
+
 class PrivateUserApiTests(TestCase):
     """Test API requests that require authentication"""
 
@@ -139,5 +141,3 @@ class PrivateUserApiTests(TestCase):
         self.assertEqual(self.user.name, payload['name'])
         self.assertTrue(self.user.check_password(payload['password']))
         self.assertEqual(res.status_code, status.HTTP_200_OK)
-
-
